@@ -27,5 +27,6 @@ LIBS += -lcurl -ljansson
 
 windows:INCLUDEPATH += ./include
 windows:QMAKE_CXXFLAGS += /Zc:strictStrings-
-#windows:LIBS += $$PWD/lib/libcurl_imp.lib $$PWD/lib/jansson.lib
 windows:LIBS += -L$$PWD/lib/
+windows:RC_FILE = kmdice-gui.rc
+
