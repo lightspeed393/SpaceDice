@@ -45,7 +45,7 @@ void MainWindow::on_refreshButton_2_clicked()
 void MainWindow::on_betButton_clicked()
 {
     char rawtx[32768], *p_rawtx;
-    char txid[65], *p_txid;
+    char txid[65];
     double amount; uint64_t odds;
     int bet_result; double won;
 

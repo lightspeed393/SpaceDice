@@ -13,7 +13,8 @@ git clone https://github.com/curl/curl
 mkdir curl-build
 cd curl-build
 rem cmake -G "Visual Studio 14 2015 Win64" ../curl -DCURL_STATICLIB:BOOL=ON -DCURL_STATIC_CRT:BOOL=ON -DHTTP_ONLY:BOOL=ON -DENABLE_IPV6:BOOL=OFF -DCMAKE_USE_WINSSL:BOOL=ON -DCMAKE_INSTALL_PREFIX=%curdir%
-cmake -G "Visual Studio 14 2015 Win64" ../curl -DCURL_STATICLIB:BOOL=ON -DCURL_STATIC_CRT:BOOL=ON -DHTTP_ONLY:BOOL=ON -DENABLE_IPV6:BOOL=OFF -DCMAKE_INSTALL_PREFIX=%curdir%
+rem cmake -G "Visual Studio 14 2015 Win64" ../curl -DCURL_STATICLIB:BOOL=ON -DCURL_STATIC_CRT:BOOL=ON -DHTTP_ONLY:BOOL=ON -DENABLE_IPV6:BOOL=OFF -DCMAKE_INSTALL_PREFIX=%curdir%
+cmake -G "Visual Studio 14 2015 Win64" ../curl -DCURL_STATIC_CRT:BOOL=ON -DHTTP_ONLY:BOOL=ON -DENABLE_IPV6:BOOL=OFF -DCMAKE_INSTALL_PREFIX=%curdir%
 cmake -G "Visual Studio 14 2015 Win64" ../curl -LA > %curdir%\curl_options.txt
 rem cmake --build . --config Release --target libcurl 
 rem cmake -P cmake_install.cmake 
@@ -38,3 +39,5 @@ rem make -j$(nproc)
 rem make install
 cmake --build . --config Release --target INSTALL
 cd %curdir%
+
+copy %curdir%\lib\libcurl_imp.lib %curdir%\lib\curl.lib 

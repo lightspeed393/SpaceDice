@@ -24,3 +24,8 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui
 
 LIBS += -lcurl -ljansson
+
+windows:INCLUDEPATH += ./include
+windows:QMAKE_CXXFLAGS += /Zc:strictStrings-
+#windows:LIBS += $$PWD/lib/libcurl_imp.lib $$PWD/lib/jansson.lib
+windows:LIBS += -L$$PWD/lib/
