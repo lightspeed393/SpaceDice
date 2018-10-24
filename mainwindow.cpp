@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include "functions.h"
 #include <QDebug>
-#include <unistd.h>
+#include <QThread>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -49,6 +49,8 @@ void MainWindow::on_betButton_clicked()
     double amount; uint64_t odds;
     int bet_result; double won;
 
+    struct BetThread : public QThread { using QThread::msleep;};
+
     //ui->betButton->setEnabled(false);
     //QCoreApplication::processEvents();
 
@@ -71,7 +73,9 @@ void MainWindow::on_betButton_clicked()
         for (int i = 0; i<5; i++) {
             //ui->MainWindow->statusBar()->showMessage("Bet in progress ["+QString::number(5-i)+"]");
             ui->statusBar->showMessage("Bet in progress ["+QString::number(5-i)+"]");
-            sleep(1);
+            //sleep(1);
+            BetThread::msleep(1000);
+
         }
         ui->statusBar->showMessage("");
 
