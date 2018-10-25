@@ -448,14 +448,14 @@
    <widget class="QLabel" name="link1">
     <property name="geometry">
      <rect>
-      <x>658</x>
+      <x>638</x>
       <y>450</y>
-      <width>61</width>
+      <width>81</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>Link1</string>
+     <string>BitcoinTalk</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -468,7 +468,7 @@
      <x>0</x>
      <y>0</y>
      <width>730</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
