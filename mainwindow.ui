@@ -57,6 +57,9 @@
     <property name="mode">
      <enum>QLCDNumber::Dec</enum>
     </property>
+    <property name="segmentStyle">
+     <enum>QLCDNumber::Flat</enum>
+    </property>
     <property name="value" stdset="0">
      <double>0.000000000000000</double>
     </property>
@@ -449,7 +452,7 @@
      <x>0</x>
      <y>0</y>
      <width>730</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

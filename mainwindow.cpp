@@ -15,6 +15,12 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setMaximumHeight(520);
     this->setMinimumWidth(730);
     this->setMinimumHeight(520);
+
+    ui->lcdBalance->setAutoFillBackground(true);// see the different if you comment that line out.
+    QPalette Pal = ui->lcdBalance->palette();
+    Pal.setColor(QPalette::Normal, QPalette::WindowText, Qt::green);
+    Pal.setColor(QPalette::Normal, QPalette::Window, Qt::black);
+    ui->lcdBalance->setPalette(Pal);
 }
 
 MainWindow::~MainWindow()
