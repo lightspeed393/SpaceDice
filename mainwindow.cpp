@@ -21,6 +21,12 @@ MainWindow::MainWindow(QWidget *parent) :
     Pal.setColor(QPalette::Normal, QPalette::WindowText, Qt::green);
     Pal.setColor(QPalette::Normal, QPalette::Window, Qt::black);
     ui->lcdBalance->setPalette(Pal);
+
+
+    ui->link1->setText("<a href=\"https://bitcointalk.org/index.php?topic=5054800\">BitcoinTalk</a>");
+    ui->link1->setTextFormat(Qt::RichText);
+    ui->link1->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    ui->link1->setOpenExternalLinks(true);
 }
 
 MainWindow::~MainWindow()
