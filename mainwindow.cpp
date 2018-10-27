@@ -11,10 +11,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     this->setWindowTitle("KMDICE Remote GUI");
     //this->statusBar()->setToolTip("Let's play ...");
-    this->setMaximumWidth(730);
-    this->setMaximumHeight(520);
-    this->setMinimumWidth(730);
-    this->setMinimumHeight(520);
+    this->setMaximumWidth(750);
+    this->setMaximumHeight(554);
+    this->setMinimumWidth(750);
+    this->setMinimumHeight(554);
 
     ui->lcdBalance->setAutoFillBackground(true);// see the different if you comment that line out.
     QPalette Pal = ui->lcdBalance->palette();
