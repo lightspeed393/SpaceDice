@@ -482,6 +482,21 @@
      <attribute name="title">
       <string>History</string>
      </attribute>
+     <widget class="QTableWidget" name="tableHistory">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>706</width>
+        <height>391</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>

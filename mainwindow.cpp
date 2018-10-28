@@ -3,6 +3,8 @@
 #include "functions.h"
 #include <QDebug>
 #include <QThread>
+#include <QTime>
+#include <QShortcut>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -27,6 +29,20 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->link1->setTextFormat(Qt::RichText);
     ui->link1->setTextInteractionFlags(Qt::TextBrowserInteraction);
     ui->link1->setOpenExternalLinks(true);
+
+
+    QStringList keys;
+    keys << "Time" << "Txid" << "Amount" << "Odds" << "Result";
+    ui->tableHistory->clear();
+    ui->tableHistory->setRowCount(0);
+    ui->tableHistory->setColumnCount(5);
+    ui->tableHistory->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->tableHistory->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tableHistory->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->tableHistory->setHorizontalHeaderLabels(keys);
+
+    ui->refreshButton->setShortcut(QKeySequence(Qt::Key_F5));
+
 }
 
 MainWindow::~MainWindow()
@@ -53,6 +69,7 @@ void MainWindow::on_refreshButton_2_clicked()
     ui->betAmount->setText(QString::number(res.minbet));
     ui->oddsAmount->setText(QString::number(1));
 }
+
 
 void MainWindow::on_betButton_clicked()
 {
@@ -91,21 +108,48 @@ void MainWindow::on_betButton_clicked()
         }
         ui->statusBar->showMessage("");
 
+        int row = ui->tableHistory->rowCount();
+        QTableWidgetItem *item;
+        ui->tableHistory->insertRow(row);
+        item = new QTableWidgetItem();
+         //item->setData(Qt::DisplayRole,QString(QDateTime::fromTime_t(time(NULL)).toString("dd/MM/yyyy hh:mm:ss")));
+        item->setData(Qt::DisplayRole,QString(QDateTime::currentDateTime().toString("dd/MM/yyyy hh:mm:ss")));
+        ui->tableHistory->setItem(row, 0, item);
+        item = new QTableWidgetItem();
+        item->setData(Qt::DisplayRole,QString(txid));
+        ui->tableHistory->setItem(row, 1, item);
+        item = new QTableWidgetItem();
+        item->setData(Qt::DisplayRole,QString::number(amount, 'f', 8));
+        ui->tableHistory->setItem(row, 2, item);
+        item = new QTableWidgetItem();
+        item->setData(Qt::DisplayRole,QString::number(odds));
+        ui->tableHistory->setItem(row, 3, item);
+        item = new QTableWidgetItem();
+
         bet_result = dicestatus(txid, &won, res.name, res.fundingtxid);
+
         switch (bet_result) {
         case 1:
             ui->logWindow->append(QString("<font color=\"green\"><b>WIN</b></font> - ") + QString::number(won, 'f', 8));
+            item->setData(Qt::DisplayRole,QString("WIN"));
             break;
         case 0:
             ui->logWindow->append(QString("<font color=\"red\"><b>LOSS</b></font>"));
+            item->setData(Qt::DisplayRole,QString("LOSS"));
             break;
         case 2:
             ui->logWindow->append(QString("<b>PENDING</b>"));
+            item->setData(Qt::DisplayRole,QString("PENDING"));
             break;
         default:
             ui->logWindow->append(QString("<b>ERROR</b>"));
+            item->setData(Qt::DisplayRole,QString("ERROR"));
             break;
         }
+
+        ui->tableHistory->setItem(row, 4, item);
+
+        // ui->tableHistory->resizeColumnsToContents();
 
         //ui->betButton->setEnabled(true);
         //QCoreApplication::processEvents();
@@ -113,3 +157,4 @@ void MainWindow::on_betButton_clicked()
 
 
 }
+
