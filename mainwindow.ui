@@ -363,9 +363,9 @@
      <widget class="QLabel" name="link1">
       <property name="geometry">
        <rect>
-        <x>205</x>
+        <x>5</x>
         <y>425</y>
-        <width>81</width>
+        <width>281</width>
         <height>20</height>
        </rect>
       </property>
@@ -506,7 +506,7 @@
      <x>0</x>
      <y>0</y>
      <width>750</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
