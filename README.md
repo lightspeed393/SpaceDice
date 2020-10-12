@@ -1,4 +1,4 @@
-# kmdice-gui
+# SpaceDice
 
 ### How to try?
 
@@ -8,5 +8,5 @@
 	- `sudo apt install libcurl-dev`
 	- `sudo apt install libjansson-dev`
 - Build:
-	- `qmake kmdice-gui.pro`
+	- `qmake SpaceDice.pro`
 	- `make`

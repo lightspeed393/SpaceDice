@@ -1,2 +1,6 @@
 moc_*.cpp
 depends
+*.o
+Makefile
+ui_mainwindow.h
+SpaceDice

@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = kmdice-gui
+TARGET = SpaceDice
 TEMPLATE = app
 
 
@@ -28,5 +28,4 @@ LIBS += -lcurl -ljansson
 windows:INCLUDEPATH += ./include
 windows:QMAKE_CXXFLAGS += /Zc:strictStrings-
 windows:LIBS += -L$$PWD/lib/
-windows:RC_FILE = kmdice-gui.rc
-
+windows:RC_FILE = SpaceDice.rc
