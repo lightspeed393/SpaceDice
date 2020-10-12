@@ -3,7 +3,7 @@
 #include <stdint.h>
 
 #define MAXBUF 2048
-#define FILENAME "KMDICE.conf"
+#define FILENAME "SPACE.conf"
 #define DELIM "="
 
 struct config
@@ -41,4 +41,3 @@ struct config get_config(char *filename);
 void init_config();
 
 #endif // FUNCTIONS
-

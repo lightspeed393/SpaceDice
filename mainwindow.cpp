@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->setWindowTitle("KMDICE Remote GUI");
+    this->setWindowTitle("Dice in Space");
     //this->statusBar()->setToolTip("Let's play ...");
     this->setMaximumWidth(750);
     this->setMaximumHeight(554);
@@ -25,7 +25,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lcdBalance->setPalette(Pal);
 
 
-    ui->link1->setText("<a href=\"https://bitcointalk.org/index.php?topic=5054800\">BitcoinTalk</a>");
+    ui->link1->setText("<a href=\"https://spaceworks.co/guides\">Dice Guides</a> | <a href=\"https://explorer.spaceworks.co/\">Explorer</a>");
     ui->link1->setTextFormat(Qt::RichText);
     ui->link1->setTextInteractionFlags(Qt::TextBrowserInteraction);
     ui->link1->setOpenExternalLinks(true);
@@ -96,7 +96,7 @@ void MainWindow::on_betButton_clicked()
         // qDebug() << p_rawtx;
         sendrawtx(txid, rawtx, strlen(rawtx));
         // qDebug() << txid;
-        // ui->logWindow->append(QString("<b>txid: </b>") + QString("<a href=\"http://kmdice.explorer.dexstats.info/tx/") + QString(txid) + QString("\">") + QString(txid) + QString("</a>"));
+        // ui->logWindow->append(QString("<b>txid: </b>") + QString("<a href=\"http://space.explorer.dexstats.info/tx/") + QString(txid) + QString("\">") + QString(txid) + QString("</a>"));
         ui->logWindow->append(QString("<b>txid: </b>") + QString(txid));
 
         for (int i = 0; i<5; i++) {
@@ -157,4 +157,3 @@ void MainWindow::on_betButton_clicked()
 
 
 }
-

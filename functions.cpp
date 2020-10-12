@@ -13,7 +13,7 @@
 char v_rpcuser[MAXBUF];
 char v_rpcpassword[MAXBUF];
 
-#define v_rpcport 30177
+#define v_rpcport 35593
 
 struct config configstruct;
 
@@ -41,9 +41,9 @@ void init_config() {
 
     char userhome[MAXBUF];
     #ifndef _WIN32
-        snprintf(userhome, MAXBUF, "%s/.komodo/KMDICE/KMDICE.conf", getenv("HOME"));
+        snprintf(userhome, MAXBUF, "%s/.komodo/SPACE/SPACE.conf", getenv("HOME"));
     #else
-        snprintf(userhome, MAXBUF, "%s\\Komodo\\KMDICE\\KMDICE.conf", getenv("APPDATA"));
+        snprintf(userhome, MAXBUF, "%s\\Komodo\\SPACE\\SPACE.conf", getenv("APPDATA"));
     #endif // !_WIN32
 
     configstruct = get_config(userhome);
@@ -180,7 +180,7 @@ t_diceinfo getDiceInfo() {
 }
 
 char* dicebet(char *rawtx, int len, char *name, char* fundingtxid, double amount, uint64_t odds) {
-// rawtx=$(./komodo-cli -ac_name=KMDICE dicebet $name $fundingtxid $amount $odds | jq -r .hex)
+// rawtx=$(./komodo-cli -ac_name=SPACE dicebet $name $fundingtxid $amount $odds | jq -r .hex)
     char *txt, request[256];
     char amount_str[65], odds_str[65];
 
